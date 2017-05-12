@@ -3,8 +3,9 @@
 function createMap(){
     console.log('creating map...')
 
-
-    // create a location
+    // Create a location. The script in the index.html creates
+    // a 'google' global variable the same way that the jQuery
+    // script creates a '$' global variable.
     var cristoRey = new google.maps.LatLng(40.792451,-73.947345)
     
     // Basic options for a simple Google Map
@@ -87,7 +88,7 @@ function createMap(){
         title: 'Cristo Rey!'
     });
     
-    // example of the geocoding service
+    // Example of the geocoding service
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({
         'address': 'new york, ny'
@@ -95,12 +96,10 @@ function createMap(){
         console.log(results)
     });
     
-    // example of the places service
+    // Example of the places service
     var service = new google.maps.places.PlacesService(map);
     service.textSearch({
-        location: cristoRey,
-        radius: 100,
-        query: 'coffee'
+        query: 'coffee in harlem'
     }, function(results) {
         console.log(results)
     });
